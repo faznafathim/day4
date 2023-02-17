@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
-import {data } from '../../../assets/data' 
+import { Day5Service } from 'src/app/day5.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-artform',
   templateUrl: './artform.component.html',
   styleUrls: ['./artform.component.css']
 })
-export class ArtformComponent {
-  artform=data
-  ngOninit():void{
-    this.artform=data
-  }
+export class ArtformComponent
+ {
+  constructor(private router:Router, private day5 : Day5Service){}
+  artform=this.day5.giveData
+ 
 
-  constructor(private router:Router)
-
-  {}
+  
   gotohere(id:any)
   {
     localStorage.setItem('id',id);
